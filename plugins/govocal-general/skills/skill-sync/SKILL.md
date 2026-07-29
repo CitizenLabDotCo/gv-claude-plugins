@@ -32,7 +32,7 @@ A skill often exists in several places. Known stores:
 2. Find the target: locate the skill's folder in the marketplace clone(s) under `~/.claude/plugins/marketplaces/` — that tells you repo + plugin.
 3. Clone or pull the repo into a scratch directory. `diff -r` the local copy against the repo copy.
 4. **Empty diff → stop and report.** Nothing to push; the edit may only exist in the claude.ai cloud store (not visible on disk) or may already be pushed. Never create an empty or no-op commit.
-5. Scan the changed files for secrets and personal data before committing.
+5. Scan the changed files for secrets and personal data before committing — if the repo ships `scripts/confidentiality_scan.py`, run it on your range (`python3 scripts/confidentiality_scan.py --range origin/main..HEAD <plugin path>`) and resolve findings first.
 6. Copy the changes in, run `claude plugin validate .` at the repo root, commit with a one-line "what + why" message, push to `main`.
 7. Remind the user: teammates receive it via `claude plugin marketplace update`.
 
