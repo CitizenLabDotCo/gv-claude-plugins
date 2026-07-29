@@ -4,19 +4,28 @@ This repo is the **single source of truth** for Go Vocal's shared Claude skills.
 
 ## The golden rule
 
-**No skill edits outside the repo.** If you improve a skill locally, open a pull request the same day. A better version sitting only on your machine recreates the exact problem this repo was built to fix.
+**No skill edits outside the repo.** If you improve a skill locally, push it here the same day. A better version sitting only on your machine recreates the exact problem this repo was built to fix.
 
 ## How to make a change
 
-1. **Make a branch** — never edit `main` directly. On github.com: open the file → pencil icon → GitHub will offer to create a branch when you commit. In Claude Code: just ask Claude to branch, edit, and open the PR for you.
-2. **Edit the skill** — change the `SKILL.md` (and supporting files) inside the right plugin folder under `plugins/`.
-3. **Open a pull request** — describe in one or two sentences *what* you changed and *why*.
-4. **Someone else merges** — don't merge your own PR. Ellen (or another maintainer) reviews and clicks "Merge pull request".
-5. **Done** — the corporate Cowork marketplace auto-syncs on merge. On your own Max account, pull the update with `/plugin marketplace update`.
+**Push directly to `main` — no review needed.** In Claude Code, just say:
 
-## Versioning
+> "Push this improved version of the project-setup skill to the gv-claude-plugins repo, with a short commit message describing what changed."
 
-We deliberately do **not** set a `version` field in `plugin.json`. Claude then uses the git commit as the version, so **every merged PR is automatically a new release** — nothing to bump, nothing to forget.
+Or on github.com: open the file → pencil icon → edit → Commit changes (directly to `main`).
+
+Rules of thumb:
+
+1. **Write a clear commit message** — one line saying *what* changed and *why*. This is our change log; future-you will thank you.
+2. **Validate before pushing** if you touched more than one file or edited `marketplace.json`: ask Claude Code to run `claude plugin validate` on the plugin. A broken file can knock the plugins offline for the whole team until fixed.
+3. **Big or risky change?** Use a quick self-merged PR instead (branch → PR → merge it yourself, no reviewer needed). This reliably triggers the corporate marketplace sync and gives teammates a chance to see what changed.
+4. **After pushing**: your teammates get it with `/plugin marketplace update`. The corporate Cowork marketplace syncs automatically; if a direct push doesn't show up there, click "Update" on the marketplace in Organization settings → Plugins.
+
+## Versioning & rollback
+
+Every push is a permanent, dated snapshot — that's our versioning. To see or undo history: open any file on github.com → **History** → pick a version → **Revert** (or ask Claude Code to revert a commit).
+
+We deliberately do **not** set a `version` field in `plugin.json`. Claude uses the git commit as the version, so **every push is automatically a new release** — nothing to bump, nothing to forget.
 
 ## Naming rules
 
@@ -28,8 +37,8 @@ We deliberately do **not** set a `version` field in `plugin.json`. Claude then u
 1. Create `plugins/<plugin-name>/.claude-plugin/plugin.json` (copy from `vibe-coding` and adjust name/description).
 2. Add its skills under `plugins/<plugin-name>/skills/`.
 3. Register it in `.claude-plugin/marketplace.json` — add an entry with `"source": "./plugins/<plugin-name>"`.
-4. PR as usual.
+4. Validate, then push.
 
 ## What does NOT belong here
 
-Apps, artifacts, prototypes, client code. Plugins and skills only. Mixed content makes every merge trigger a sync and one bad file can knock out plugins for the whole team.
+Apps, artifacts, prototypes, client code. Plugins and skills only. Every push can trigger a sync, and one bad file can knock out plugins for the whole team.
