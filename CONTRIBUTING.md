@@ -10,13 +10,13 @@ This repo is the **single source of truth** for Go Vocal's shared Claude skills.
 
 **Push directly to `main` — no review needed.** In Claude Code, just say:
 
-> "Push this improved version of the project-setup skill to the gv-claude-plugins repo, with a short commit message describing what changed."
+> "Push my updated project-setup skill to gv-claude-plugins."
 
-Or on github.com: open the file → pencil icon → edit → Commit changes (directly to `main`).
+Claude Code handles the rest (commit, message, push). Or on github.com: open the file → pencil icon → edit → Commit changes (directly to `main`).
 
 Rules of thumb:
 
-1. **Write a clear commit message** — one line saying *what* changed and *why*. This is our change log; future-you will thank you.
+1. **Write a clear commit message** — one line saying *what* changed and *why*. This is our change log; future-you will thank you. (When Claude Code writes it for you, glance at it before confirming.)
 2. **Validate before pushing** if you touched more than one file or edited `marketplace.json`: ask Claude Code to run `claude plugin validate` on the plugin. A broken file can knock the plugins offline for the whole team until fixed.
 3. **Big or risky change?** Use a quick self-merged PR instead (branch → PR → merge it yourself, no reviewer needed). This reliably triggers the corporate marketplace sync and gives teammates a chance to see what changed.
 4. **After pushing**: your teammates get it with `/plugin marketplace update`. The corporate Cowork marketplace syncs automatically; if a direct push doesn't show up there, click "Update" on the marketplace in Organization settings → Plugins.
