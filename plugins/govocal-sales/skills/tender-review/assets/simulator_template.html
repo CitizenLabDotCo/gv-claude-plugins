@@ -1,0 +1,234 @@
+<!--
+  TENDER SCORING SIMULATOR — TEMPLATE
+  Adapt this per tender, then publish with the Cowork create_artifact tool (one simulator per tender).
+
+  WHAT TO EDIT (search for "EDIT PER TENDER"):
+    1. TENDER object: name, currency, price formula pattern + max points, quality criteria + weights.
+    2. BIDDERS: Go Vocal + each named competitor, their assumed price, and per-criterion quality.
+    3. COST_FLOOR and the price SWEEP range.
+  Everything else (scoring math, charts, price-to-win) is generic and mirrors scripts/simulate_scores.py.
+
+  Self-contained. Loads Chart.js from cdnjs (allowed in artifacts). No storage APIs used.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Tender Scoring Simulator</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root{ --bg:#0f1115; --card:#181b22; --line:#2a2f3a; --txt:#e7e9ee; --muted:#9aa3b2;
+         --gv:#3b82f6; --win:#22c55e; --lose:#ef4444; --accent:#f59e0b; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.5 system-ui,Segoe UI,Roboto,sans-serif;padding:20px}
+  h1{font-size:20px;margin:0 0 2px} h2{font-size:15px;margin:18px 0 8px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  .sub{color:var(--muted);margin:0 0 16px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:880px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+  table{width:100%;border-collapse:collapse} th,td{padding:6px 8px;text-align:right;border-bottom:1px solid var(--line)}
+  th:first-child,td:first-child{text-align:left}
+  input[type=number]{width:92px;background:#11141a;color:var(--txt);border:1px solid var(--line);border-radius:6px;padding:4px 6px;text-align:right}
+  input[type=range]{width:100%}
+  .pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:600}
+  .win{background:rgba(34,197,94,.15);color:var(--win)} .lose{background:rgba(239,68,68,.15);color:var(--lose)}
+  .big{font-size:28px;font-weight:700} .accent{color:var(--accent)}
+  .row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:6px 0}
+  .muted{color:var(--muted)} .note{font-size:12px;color:var(--muted);margin-top:8px}
+  details{margin-top:10px} summary{cursor:pointer;color:var(--muted)}
+</style>
+</head>
+<body>
+  <h1 id="t-title">Tender Scoring Simulator</h1>
+  <p class="sub" id="t-sub"></p>
+
+  <div class="card" style="margin-bottom:16px">
+    <div class="row">
+      <div><span class="muted">Our price</span>
+        <div class="big"><span id="ourPriceLbl"></span></div></div>
+      <div style="flex:1;padding:0 16px">
+        <input type="range" id="ourPrice"/>
+        <div class="row"><span class="muted" id="sweepLo"></span><span class="muted" id="sweepHi"></span></div>
+      </div>
+      <div style="text-align:right">
+        <span class="muted">Result</span><div class="big"><span id="verdict"></span></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="muted">Competitor price scenario</div>
+      <select id="scenario" style="background:#11141a;color:var(--txt);border:1px solid var(--line);border-radius:6px;padding:4px">
+        <option value="1.0">Expected</option>
+        <option value="0.9">Aggressive (−10%)</option>
+        <option value="1.1">Soft (+10%)</option>
+      </select>
+      <div class="muted">Price-to-win: <span class="accent" id="ptw"></span></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Bidders & inputs</h2>
+      <table id="bidders"><thead><tr><th>Bidder</th><th>Price</th><th>Quality pts</th><th>Price pts</th><th>Total</th></tr></thead><tbody></tbody></table>
+      <div class="note">Edit assumed competitor prices and quality points directly — the chart and price-to-win update live. Quality points come from the proposal review (Phase 2).</div>
+    </div>
+    <div class="card">
+      <h2>Total score vs our price</h2>
+      <canvas id="chart" height="220"></canvas>
+      <div class="note">Lines = each bidder's total across our price range. We win where our line is on top. Green band = prices where we beat the strongest competitor (≥ cost floor).</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h2>Scoring model</h2>
+    <div id="model"></div>
+    <details><summary>Quality criteria (edit our points per criterion)</summary>
+      <table id="criteria"><thead><tr><th>Criterion</th><th>Max</th><th>Go Vocal</th></tr></thead><tbody></tbody></table>
+    </details>
+  </div>
+
+<script>
+/* ====================== EDIT PER TENDER ====================== */
+const TENDER = {
+  name: "Stad Mechelen — participatieplatform",   // EDIT
+  authority: "Stad Mechelen", currency: "€",        // EDIT
+  // price formula: lowest_proportional | linear_interpolation | relative_reference
+  //                relative_average | proportional_difference | threshold | meat_ratio
+  pricePattern: "lowest_proportional",              // EDIT (see references/price_formulas.md)
+  pricePoints: 50,                                  // EDIT  max price points (= price weight)
+  priceReference: "P_min",                          // EDIT  P_min|P_max|P_avg or a number
+  awardType: "additive",                            // EDIT  additive | meat
+  costFloor: 22000,                                 // EDIT  lowest price we'd accept
+  sweep: { low: 20000, high: 45000, step: 250 },    // EDIT  our-price range
+  // Quality (non-price) criteria with max points. Sum = max non-price points.  EDIT
+  criteria: [
+    { id:"C2.1", name:"Functionality & flexibility", max:20 },
+    { id:"C2.2", name:"User-friendliness",           max:20 },
+    { id:"C3",   name:"MVOO",                         max:10 },
+  ],
+};
+// Go Vocal + competitors. quality = per-criterion points (same order as TENDER.criteria).  EDIT
+let BIDDERS = [
+  { name:"Go Vocal", isUs:true, price:30000, quality:{ "C2.1":18, "C2.2":17, "C3":8 } },
+  { name:"TreeCompany",         price:28000, quality:{ "C2.1":15, "C2.2":14, "C3":7 } },
+  { name:"Hoplr",               price:33000, quality:{ "C2.1":13, "C2.2":15, "C3":6 } },
+];
+/* ==================== END EDIT PER TENDER ==================== */
+
+const fmt = n => TENDER.currency + Number(n).toLocaleString("en-US",{maximumFractionDigits:0});
+const qSum = b => TENDER.criteria.reduce((s,c)=> s + (Number(b.quality[c.id])||0), 0);
+
+function priceScore(p, prices){
+  const pmin=Math.min(...prices), pmax=Math.max(...prices), pavg=prices.reduce((a,b)=>a+b,0)/prices.length;
+  const M=TENDER.pricePoints, ref=TENDER.priceReference;
+  const resolve = r => typeof r==="number" ? r : ({P_min:pmin,P_max:pmax,P_avg:pavg}[r] ?? pmin);
+  let s=0;
+  switch(TENDER.pricePattern){
+    case "lowest_proportional":   s=(pmin/p)*M; break;
+    case "linear_interpolation":  {const hi=(ref==="P_min"||ref==null)?pmax:resolve(ref); s= hi===pmin?0:M*(hi-p)/(hi-pmin);} break;
+    case "relative_reference":    {const r=resolve(ref); s=M*(r-p)/r;} break;
+    case "relative_average":      s=(pavg/p)*M; break;
+    case "proportional_difference": s=M*(1-(p-pmin)/pmin); break;
+    case "threshold":             {const c=resolve(ref); s= p>c?0:(pmin/p)*M;} break;
+    case "meat_ratio":            s=0; break; // handled in total()
+  }
+  return Math.max(0, Math.min(s, M));
+}
+function totalFor(price, qpts, prices){
+  if(TENDER.awardType==="meat") return price? qpts/price : 0;
+  return qpts + priceScore(price, prices);
+}
+function competitorPrices(mult){ return BIDDERS.filter(b=>!b.isUs).map(b=>Math.round(b.price*mult)); }
+
+function evaluate(ourPrice, mult){
+  const comp = competitorPrices(mult);
+  const prices = [ourPrice, ...comp];
+  const rows = BIDDERS.map((b,i)=>{
+    const price = b.isUs? ourPrice : comp[BIDDERS.filter((x,j)=>!x.isUs && j<i).length];
+    return { name:b.name, isUs:b.isUs, price, quality:qSum(b),
+             total: totalFor(price, qSum(b), prices) };
+  });
+  const us = rows.find(r=>r.isUs);
+  const bestComp = rows.filter(r=>!r.isUs).sort((a,b)=>b.total-a.total)[0];
+  return { rows, us, bestComp };
+}
+function priceToWin(mult){
+  let best=null;
+  for(let p=TENDER.sweep.low; p<=TENDER.sweep.high; p+=TENDER.sweep.step){
+    const {us,bestComp}=evaluate(p,mult);
+    if((!bestComp || us.total>=bestComp.total) && p>=TENDER.costFloor) best=p;
+  }
+  return best;
+}
+
+let chart;
+function render(){
+  const mult = parseFloat(document.getElementById("scenario").value);
+  const ourPrice = +document.getElementById("ourPrice").value;
+  document.getElementById("ourPriceLbl").textContent = fmt(ourPrice);
+  const {rows, us, bestComp} = evaluate(ourPrice, mult);
+  const win = !bestComp || us.total>=bestComp.total;
+  document.getElementById("verdict").innerHTML =
+    `<span class="pill ${win?'win':'lose'}">${win?'WIN':'BEHIND'}</span>`;
+
+  // bidder table
+  const tb=document.querySelector("#bidders tbody"); tb.innerHTML="";
+  rows.sort((a,b)=>b.total-a.total).forEach(r=>{
+    tb.innerHTML += `<tr><td>${r.name}${r.isUs?' ★':''}</td>
+      <td>${fmt(r.price)}</td><td>${r.quality.toFixed(0)}</td>
+      <td>${TENDER.awardType==='meat'?'—':priceScore(r.price,[ourPrice,...competitorPrices(mult)]).toFixed(1)}</td>
+      <td><b>${r.total.toFixed(2)}</b></td></tr>`;
+  });
+
+  const ptw = priceToWin(mult);
+  document.getElementById("ptw").textContent = ptw? fmt(ptw) : "no winning price ≥ floor";
+
+  // sweep chart
+  const labels=[], series={};
+  rows.forEach(r=> series[r.name]=[]);
+  for(let p=TENDER.sweep.low; p<=TENDER.sweep.high; p+=TENDER.sweep.step){
+    labels.push(p);
+    const ev=evaluate(p,mult);
+    ev.rows.forEach(r=> series[r.name].push(+r.total.toFixed(2)));
+  }
+  const palette=["#3b82f6","#ef4444","#f59e0b","#a855f7","#14b8a6","#eab308"];
+  const datasets=Object.keys(series).map((name,i)=>({
+    label:name, data:series[name], borderColor:palette[i%palette.length],
+    borderWidth: name==="Go Vocal"?3:1.5, pointRadius:0, tension:.15 }));
+  if(chart) chart.destroy();
+  chart=new Chart(document.getElementById("chart"),{
+    type:"line", data:{labels,datasets},
+    options:{responsive:true, plugins:{legend:{labels:{color:"#e7e9ee"}}},
+      scales:{x:{ticks:{color:"#9aa3b2",callback:v=>fmt(labels[v])},grid:{color:"#2a2f3a"}},
+              y:{ticks:{color:"#9aa3b2"},grid:{color:"#2a2f3a"}}}}
+  });
+}
+
+// build static bits
+document.getElementById("t-title").textContent = "Tender Scoring Simulator — " + TENDER.name;
+document.getElementById("t-sub").textContent =
+  `${TENDER.authority} · price formula: ${TENDER.pricePattern} (${TENDER.pricePoints} pts) · award: ${TENDER.awardType}`;
+const slider=document.getElementById("ourPrice");
+slider.min=TENDER.sweep.low; slider.max=TENDER.sweep.high; slider.step=TENDER.sweep.step;
+slider.value=Math.round((TENDER.sweep.low+TENDER.sweep.high)/2);
+document.getElementById("sweepLo").textContent=fmt(TENDER.sweep.low);
+document.getElementById("sweepHi").textContent=fmt(TENDER.sweep.high);
+document.getElementById("model").innerHTML =
+  `<div class="muted">Price ${TENDER.pricePoints} pts · Quality ${TENDER.criteria.reduce((s,c)=>s+c.max,0)} pts`+
+  ` · Cost floor ${fmt(TENDER.costFloor)}</div>`;
+// criteria editor
+const ctb=document.querySelector("#criteria tbody");
+const us=BIDDERS.find(b=>b.isUs);
+TENDER.criteria.forEach(c=>{
+  const tr=document.createElement("tr");
+  tr.innerHTML=`<td>${c.name}</td><td>${c.max}</td><td></td>`;
+  const inp=document.createElement("input"); inp.type="number"; inp.value=us.quality[c.id]; inp.max=c.max; inp.min=0;
+  inp.oninput=()=>{ us.quality[c.id]=Math.max(0,Math.min(c.max,+inp.value)); render(); };
+  tr.lastElementChild.appendChild(inp); ctb.appendChild(tr);
+});
+// competitor price/quality editors live in the bidder table note; quick inline editors:
+slider.oninput=render; document.getElementById("scenario").onchange=render;
+render();
+</script>
+</body>
+</html>

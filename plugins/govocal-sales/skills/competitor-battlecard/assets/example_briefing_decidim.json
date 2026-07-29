@@ -1,0 +1,237 @@
+{
+  "competitor": "Decidim",
+  "language": "en",
+  "cover": {
+    "label_left": "GO VOCAL",
+    "label_right": "DECIDIM",
+    "title": "Upgrading your\nparticipation tools.",
+    "subtitle": "Why Go Vocal is the natural next step for Decidim clients looking for a more inclusive, interactive and responsive dialogue with their community — and what changes under the hood."
+  },
+  "intro_paragraphs": [
+    "You already run a healthy participation practice on Decidim. The intent of this note is to show how that practice can grow — with richer tools, less operational overhead, and the same people at your side.",
+    "Go Vocal has invested heavily in engagement methods, AI-assisted analysis, and a modern resident experience. In 2025 it was ranked #1 globally by People Powered with a perfect 100/100 on features — among 30 international digital participation platforms assessed. This note is written as a consultative overview of where Go Vocal can lift your current practice, and where Decidim still does things differently. We've tried to be honest about both."
+  ],
+  "numbers": [
+    { "value": "4.7 / 5", "label": "Customer Satisfaction Score" },
+    { "value": "40",       "label": "Countries we work in" },
+    { "value": "640+",     "label": "Governments we have worked with" },
+    { "value": "100/100",  "label": "People Powered score" },
+    { "value": "27,100",   "label": "Projects launched" },
+    { "value": "2,000",    "label": "Monthly active admins" }
+  ],
+  "section_intro": "Across the migration conversations we've had so far, five areas come up again and again as the places where teams feel a meaningful improvement — four product areas, and one around how the platform evolves and how we work with you around it. For each, we've framed the opportunity as we hear it from practitioners, and then described the three features (or services) that do the most to address it.",
+  "usps": [
+    {
+      "title": "Hybrid input & representativeness",
+      "opportunity": "Digital-only consultations systematically over-represent residents who are comfortable online — and under-represent the people you most want to hear from. On Decidim, offline contributions typically require staff to re-key paper forms or meeting notes by hand, and representativeness is tracked (if at all) outside the platform. Go Vocal closes that loop: a single environment where online and offline input feed the same dataset, and where you see in real time who you are reaching and who you are missing. The payoff: consultations that are both more inclusive and more defensible when you publish the results.",
+      "features_intro": "Three capabilities that together turn hybrid participation from a manual exercise into a single flow.",
+      "features": [
+        {
+          "name": "360° Input Portal (with FormSync & ECHO)",
+          "desc": "One workspace where every input lands: online submissions, paper surveys scanned via OCR with FormSync 2.0, and in-person meeting transcripts produced by ECHO. No double entry, no parallel spreadsheets — all channels feed the same analytical environment."
+        },
+        {
+          "name": "Phygital participation toolkit",
+          "desc": "QR codes, kiosks, printed forms and SMS flows that bring consultations into the field and connect automatically back to the project, so offline engagement is a first-class citizen rather than an afterthought."
+        },
+        {
+          "name": "Representativeness Dashboard",
+          "desc": "Compare live participant demographics against your population baseline (census or equivalent), with visual gap indicators. Teams see early who they are reaching and who they are not — and can target outreach before results are published."
+        }
+      ]
+    },
+    {
+      "title": "Analysis & reporting",
+      "opportunity": "On Decidim, launching a consultation is easy enough. The hard part comes the day after: thousands of contributions, free-text answers and meeting notes land on a small team that disappears into Excel for several weeks. Reports end up inconsistent, late and hard to compare across projects. Go Vocal treats analysis and reporting as first-class product surfaces, so the heavy lifting happens inside the platform and the deliverables come out the other end. Clients report ~55% reduction in reporting cycle time.",
+      "features_intro": "Three capabilities that compress the analysis-to-report cycle from weeks to days.",
+      "features": [
+        {
+          "name": "AI Sensemaking",
+          "desc": "Auto-tagging, clustering and summarisation across thousands of open-text contributions — including cross-project themes — with every AI output traceable back to the original inputs so nothing becomes a black box."
+        },
+        {
+          "name": "Demographic pattern detection",
+          "desc": "Surface how opinions and priorities differ across segments (age, neighbourhood, language, etc.) without leaving the platform. Natural-language Q&A lets non-analysts ask the data direct questions."
+        },
+        {
+          "name": "Ready-made + custom report builder",
+          "desc": "Pre-built report templates for each engagement method generate a branded draft in one click; the Report Builder then lets teams compose custom reports — embedded charts, quotes, narrative — without exporting to Word."
+        }
+      ]
+    },
+    {
+      "title": "Streamlined back-office workflows",
+      "opportunity": "A lot of the operational side of participation on Decidim lives outside the platform: Grist bases for instruction, email threads for sign-offs, shared spreadsheets for planning. It works, but it makes cross-team collaboration slower and leaves the audit trail scattered across tools. Go Vocal brings those workflows — not only the content — inside the platform, so a head of participation can see the full portfolio in one place.",
+      "features_intro": "Three capabilities that take the operational weight off the team.",
+      "features": [
+        {
+          "name": "Publication & approval workflows",
+          "desc": "Configurable states (draft → review → publish) with roles mapped to departments, so nothing goes live without the right sign-offs. Audit logs and role-based access are part of the core platform, not a bolt-on."
+        },
+        {
+          "name": "Project templates & Gantt timelines",
+          "desc": "Standardise how a participatory budget, consultation or petition is set up, and visualise phases, milestones and dependencies across concurrent projects directly in the admin — no side tool required."
+        },
+        {
+          "name": "Outreach & internal collaboration",
+          "desc": "Segmented email campaigns, automated invites and reminders, smart groups and in-platform collaboration keep outreach and coordination on a single system instead of in separate mailing tools and email threads."
+        }
+      ]
+    },
+    {
+      "title": "Interactive engagement, UX & CMS",
+      "opportunity": "Two out of three residents now visit participation platforms on a phone, which makes the experience itself a participation feature. Go Vocal is designed around that reality — horizontal carousels rather than endless vertical scroll, lightweight animations that guide the eye, and a homepage that adapts to each resident's interests and neighbourhood. An accessible, well-designed experience drives higher conversion, more participation, and ultimately higher trust in the institution behind it. Paired with no-code CMS builders, your team can shape that experience without developers in the loop.",
+      "features_intro": "Three capabilities that together make the resident experience delightful, and the admin experience simple.",
+      "features": [
+        {
+          "name": "Mobile-first, adaptive resident UX",
+          "desc": "Fully white-labelled, WCAG 2.2 AA compliant experience designed for non-technical residents — horizontal carousels, micro-animations, and a personalised homepage that surfaces projects based on a resident's interests and neighbourhood."
+        },
+        {
+          "name": "Three no-code builders (CMS)",
+          "desc": "Content Builder, Form / Survey Builder and Report Builder — drag-and-drop tools that let the participation team design project pages, rich surveys (with conditional logic and map questions) and living reports, all without developer support."
+        },
+        {
+          "name": "Map-based survey questions for planning",
+          "desc": "Where Decidim has no native tools for urban planners, Go Vocal lets residents see project plans and draw lines, polygons and points directly on them to share their input."
+        }
+      ]
+    },
+    {
+      "title": "Roadmap velocity, community & success",
+      "opportunity": "One of the less visible shifts in moving from Decidim to Go Vocal is how the product evolves, and how you're supported around it. Working with an open-source community is rewarding, but product velocity naturally depends on distributed volunteer contributions and coordination across many stakeholders. With Go Vocal, a dedicated 15-person product team builds full-time, in close partnership with clients: features are co-designed with you, shipped quickly, and rolled out to everyone at once. Around the product, we invest deliberately in a community of practice and a dedicated success service — because the tool alone isn't what creates outcomes; what clients do with it, with the right support around them, is.",
+      "features_intro": "Three commitments that make the speed of improvement, and the depth of support, tangible in practice.",
+      "features": [
+        {
+          "name": "Client-led roadmap, shipped fast",
+          "desc": "A dedicated 15-person product team, with a transparent roadmap influenced by a client council. Co-design sessions run with clients throughout the year, and new features reach everyone on the platform the moment they ship — no deployment project on your end."
+        },
+        {
+          "name": "Regional community of practice",
+          "desc": "Monthly online sessions per region, each focused on a specific topic (participatory budgeting, representativeness, AI in participation) where clients exchange openly. Complemented by an in-product Inspiration Hub, where you can browse how other local governments in your region have run a similar project."
+        },
+        {
+          "name": "Dedicated GovSuccess Manager",
+          "desc": "A named GovSuccess Manager walks alongside your team: quarterly data and impact reports, help with project design, strategic reviews, and escalation into the product team when needed. We measure ourselves on outcomes, not on feature delivery."
+        }
+      ]
+    }
+  ],
+  "bottom_line": {
+    "paragraphs": [
+      "Decidim is a serious open-source project and a legitimate foundation for a participation programme. Go Vocal builds on the same mission and offers a more complete, ready-to-use toolbox: richer engagement methods, in-product analysis and reporting, a modern resident experience, and enterprise-grade security — delivered by a team that co-creates the roadmap with you."
+    ],
+    "closer_italic": "For Decidim clients who want to spend less time on infrastructure and more on outcomes, migration is the natural next step — and we'd approach it as a shared project, with you, not done to you."
+  },
+  "tabs": {
+    "1": {
+      "categories": [
+        {
+          "name": "IDEATION / IDEAS BOX",
+          "rows": [
+            {
+              "requirement": "Citizens can submit ideas with title, description, images, attachments",
+              "gv_status": "🟢",
+              "gv_detail": "Full support: rich text editor, image upload, file attachments, video embeds. Project cards display in modern carousel view.",
+              "competitor_status": "🟢",
+              "competitor_detail": "Proposals component: title, description, images, attachments. Displayed as list/card view with filters.",
+              "source": "https://docs.decidim.org/en/v0.28/customize/components/proposals/"
+            },
+            {
+              "requirement": "AI-powered idea clustering and synthesis",
+              "gv_status": "🟢",
+              "gv_detail": "Perspectives: AI auto-clusters ideas into thematic groups; public visualisation of collective intelligence; admin summary generation.",
+              "competitor_status": "🔴",
+              "competitor_detail": "Not available. Manual categorization only. No AI analysis or public clustering of contributions.",
+              "source": "Competitor docs review — no AI feature surfaced"
+            },
+            {
+              "requirement": "Merging of ideas / proposals into a single record",
+              "gv_status": "🔴",
+              "gv_detail": "Not natively supported today. Ideas can be linked, tagged and grouped, but cannot be merged into one consolidated record. On our backlog.",
+              "competitor_status": "🟢",
+              "competitor_detail": "Native merging available at the admin level: similar proposals can be fused into a single proposal, with links to originals preserved.",
+              "source": "https://docs.decidim.org/en/develop/admin/merging_proposals"
+            }
+          ]
+        },
+        {
+          "name": "PARTICIPATORY BUDGETING",
+          "rows": [
+            {
+              "requirement": "Full PB lifecycle management (idea → evaluation → vote → implementation)",
+              "gv_status": "🟢",
+              "gv_detail": "Complete PB workflow with configurable phases, timeline management, status tracking through the entire lifecycle.",
+              "competitor_status": "🟢",
+              "competitor_detail": "Budgets module with configurable phases (submission, evaluation, voting). Steps defined by administrator.",
+              "source": "https://docs.decidim.org/en/v0.28/customize/components/budgets/"
+            },
+            {
+              "requirement": "SMS-based verification per vote",
+              "gv_status": "🟡",
+              "gv_detail": "Not available today. Voter verification runs via FranceConnect, SSO and email. SMS verification is on the Q2 2026 roadmap.",
+              "competitor_status": "🟢",
+              "competitor_detail": "SMS authentication available per vote (~€0.10/SMS) for non-registered voters. Widely used for participatory budgets.",
+              "source": "Internal roadmap + Decidim verification handlers docs"
+            }
+          ]
+        }
+      ]
+    },
+    "3": {
+      "categories": [
+        {
+          "name": "AI & INTELLIGENT ANALYSIS",
+          "rows": [
+            {
+              "requirement": "Native AI analysis of open-text contributions",
+              "gv_status": "🟢",
+              "gv_detail": "AI Sensemaking: auto-tagging, clustering, summarisation and cross-project themes. Every AI output is traceable to the original contributions.",
+              "competitor_status": "🔴",
+              "competitor_detail": "No native AI. Analytics limited to basic dashboards. Advanced analysis typically requires exporting and using external tools.",
+              "source": "Competitor feature page — no AI surface"
+            },
+            {
+              "requirement": "Report builder for branded outputs",
+              "gv_status": "🟢",
+              "gv_detail": "Pre-built report templates for each engagement method; custom Report Builder with drag-and-drop charts, quotes and narrative. ~55% reporting cycle time reduction reported by clients.",
+              "competitor_status": "🔴",
+              "competitor_detail": "No native report builder. Results exported to Metabase or external BI tools for reporting.",
+              "source": "https://decidim.org/features"
+            }
+          ]
+        }
+      ]
+    },
+    "5": {
+      "categories": [
+        {
+          "name": "OPEN SOURCE, OPEN DATA & REVERSIBILITY",
+          "rows": [
+            {
+              "requirement": "Open-source code under a permissive license",
+              "gv_status": "🟡",
+              "gv_detail": "Source code fully accessible to clients; operates under a commercial license. Open data is supported natively.",
+              "competitor_status": "🟢",
+              "competitor_detail": "Fully open-source under AGPL. Open-by-default is a core project value.",
+              "source": "https://github.com/decidim/decidim/blob/develop/LICENSE-AGPLv3.txt"
+            }
+          ]
+        },
+        {
+          "name": "HOSTING & SECURITY",
+          "rows": [
+            {
+              "requirement": "ISO 27001 certified hosting",
+              "gv_status": "🟢",
+              "gv_detail": "ISO 27001 certified. GDPR by design, EU hosting, SSO (SAML, FranceConnect, Azure AD), pen-tested.",
+              "competitor_status": "🟡",
+              "competitor_detail": "Security and compliance depend on hosting choices and configuration. ISO 27001 is not a project-level claim.",
+              "source": "Go Vocal trust page + Decidim deployment docs"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

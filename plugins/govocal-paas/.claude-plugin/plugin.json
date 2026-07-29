@@ -1,0 +1,10 @@
+{
+  "name": "govocal-paas",
+  "displayName": "Go Vocal PaaS",
+  "description": "Participation-as-a-service delivery chain: Metabase query conventions, project library finder, project intake, project drafting, communication planning, and strategic 12-month participation programmes.",
+  "author": {
+    "name": "Go Vocal"
+  },
+  "repository": "https://github.com/CitizenLabDotCo/gv-claude-plugins",
+  "keywords": ["go-vocal", "internal"]
+}

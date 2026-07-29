@@ -8,9 +8,29 @@
   },
   "plugins": [
     {
-      "name": "vibe-coding",
-      "source": "./plugins/vibe-coding",
-      "description": "Shared vibe-coded skills maintained by Wietse, Jeroen, Irene and Rob."
+      "name": "govocal-coding",
+      "source": "./plugins/govocal-coding",
+      "description": "Prototype-building toolkit for vibecoded apps — UI primitives, accessibility, persona critique, translation, participation design. Maintained by Wietse, Jeroen, Irene and Rob."
+    },
+    {
+      "name": "govocal-paas",
+      "source": "./plugins/govocal-paas",
+      "description": "Participation-as-a-service delivery chain — Metabase conventions, project library, intake, project drafting, communication planning, strategic planning."
+    },
+    {
+      "name": "govocal-sales",
+      "source": "./plugins/govocal-sales",
+      "description": "Sales and bid toolkit — tender review, executive notes, competitor battlecards, intent signals."
+    },
+    {
+      "name": "govocal-gs",
+      "source": "./plugins/govocal-gs",
+      "description": "Government Success workflows — client account planning."
+    },
+    {
+      "name": "govocal-general",
+      "source": "./plugins/govocal-general",
+      "description": "Company-wide basics — Go Vocal brand guidelines and the product expert."
     }
   ]
 }

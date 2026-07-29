@@ -1,0 +1,10 @@
+{
+  "name": "govocal-sales",
+  "displayName": "Go Vocal Sales",
+  "description": "Sales and bid toolkit: master tender/RFP review, executive notes for cities, competitor battlecards, and weekly buying-intent signals from ICP cities.",
+  "author": {
+    "name": "Go Vocal"
+  },
+  "repository": "https://github.com/CitizenLabDotCo/gv-claude-plugins",
+  "keywords": ["go-vocal", "internal"]
+}

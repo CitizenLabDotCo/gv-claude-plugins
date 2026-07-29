@@ -1,0 +1,10 @@
+{
+  "name": "govocal-general",
+  "displayName": "Go Vocal General",
+  "description": "Company-wide basics: Go Vocal brand guidelines for any output, and the product expert for capability questions, RFP answers, and feature checks in every market's terminology.",
+  "author": {
+    "name": "Go Vocal"
+  },
+  "repository": "https://github.com/CitizenLabDotCo/gv-claude-plugins",
+  "keywords": ["go-vocal", "internal"]
+}

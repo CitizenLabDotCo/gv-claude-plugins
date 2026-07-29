@@ -1,0 +1,10 @@
+{
+  "name": "govocal-gs",
+  "displayName": "Go Vocal GS",
+  "description": "Government Success workflows: client account planning with health diagnosis and 4-6 week plays.",
+  "author": {
+    "name": "Go Vocal"
+  },
+  "repository": "https://github.com/CitizenLabDotCo/gv-claude-plugins",
+  "keywords": ["go-vocal", "internal"]
+}

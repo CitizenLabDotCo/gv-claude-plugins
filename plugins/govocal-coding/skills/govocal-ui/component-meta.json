@@ -1,0 +1,414 @@
+{
+  "accordion": {
+    "surface": "fo",
+    "category": "content",
+    "status": "canonical",
+    "tags": [
+      "faq",
+      "details"
+    ]
+  },
+  "approval-voting": {
+    "surface": "fo",
+    "category": "voting",
+    "status": "canonical",
+    "tags": [
+      "cultuurconnect",
+      "results"
+    ]
+  },
+  "attachment": {
+    "surface": "fo",
+    "category": "content",
+    "status": "canonical",
+    "tags": [
+      "stlouis",
+      "download"
+    ]
+  },
+  "avatar-overflow-bubble": {
+    "surface": "cross",
+    "category": "misc",
+    "status": "variant",
+    "tags": [
+      "falkirk",
+      "avatars"
+    ]
+  },
+  "banner": {
+    "surface": "fo",
+    "category": "banners",
+    "status": "canonical",
+    "tags": [
+      "hero",
+      "illustration"
+    ]
+  },
+  "bo-analysis": {
+    "surface": "bo",
+    "category": "content",
+    "status": "canonical",
+    "tags": [
+      "ai",
+      "sensemaking"
+    ]
+  },
+  "bo-app-shell": {
+    "surface": "bo",
+    "category": "shell",
+    "status": "canonical",
+    "tags": [
+      "chrome",
+      "topbar"
+    ]
+  },
+  "bo-menu": {
+    "surface": "bo",
+    "category": "navigation",
+    "status": "canonical",
+    "tags": [
+      "dropdown",
+      "flyout"
+    ]
+  },
+  "bo-sidebar": {
+    "surface": "bo",
+    "category": "shell",
+    "status": "canonical",
+    "tags": [
+      "nav",
+      "rail"
+    ]
+  },
+  "bo-templatecard": {
+    "surface": "bo",
+    "category": "cards",
+    "status": "canonical",
+    "tags": [
+      "raleigh",
+      "templates"
+    ]
+  },
+  "community-monitor": {
+    "surface": "fo",
+    "category": "survey",
+    "status": "canonical",
+    "tags": [
+      "wietsedemo",
+      "sentiment"
+    ]
+  },
+  "content-builder-render": {
+    "surface": "fo",
+    "category": "content",
+    "status": "canonical",
+    "tags": [
+      "copenhagen",
+      "layout"
+    ],
+    "layer": "pattern"
+  },
+  "cookie-modal": {
+    "surface": "fo",
+    "category": "modals",
+    "status": "variant",
+    "tags": [
+      "wien",
+      "consent"
+    ]
+  },
+  "cta-banner": {
+    "surface": "fo",
+    "category": "banners",
+    "status": "review",
+    "tags": [
+      "stlouis",
+      "strip"
+    ]
+  },
+  "event-card": {
+    "surface": "fo",
+    "category": "events",
+    "status": "canonical",
+    "tags": [
+      "datechip",
+      "rsvp"
+    ]
+  },
+  "event-card-bordered": {
+    "surface": "fo",
+    "category": "events",
+    "status": "variant",
+    "tags": [
+      "copenhagen",
+      "linz",
+      "eventswidget"
+    ]
+  },
+  "extra-survey": {
+    "surface": "cross",
+    "category": "survey",
+    "status": "canonical",
+    "tags": [
+      "parallel-participation",
+      "cta"
+    ]
+  },
+  "fo-linz-monitorband": {
+    "surface": "fo",
+    "category": "banners",
+    "status": "variant",
+    "tags": [
+      "linz",
+      "monitorband"
+    ]
+  },
+  "folder-card": {
+    "surface": "fo",
+    "category": "cards",
+    "status": "variant",
+    "tags": [
+      "stlouis",
+      "projects-list"
+    ]
+  },
+  "footer": {
+    "surface": "fo",
+    "category": "navigation",
+    "status": "canonical",
+    "tags": [
+      "wien",
+      "chrome"
+    ]
+  },
+  "footer-logos": {
+    "surface": "fo",
+    "category": "navigation",
+    "status": "variant",
+    "tags": [
+      "luxembourg",
+      "linz",
+      "config"
+    ]
+  },
+  "header-nav": {
+    "surface": "fo",
+    "category": "navigation",
+    "status": "canonical",
+    "tags": [
+      "wien",
+      "chrome"
+    ]
+  },
+  "hero": {
+    "surface": "fo",
+    "category": "banners",
+    "status": "canonical",
+    "tags": [
+      "banner",
+      "homepage"
+    ]
+  },
+  "homepage-featured-row": {
+    "surface": "fo",
+    "category": "cards",
+    "status": "variant",
+    "tags": [
+      "wietsedemo",
+      "featured"
+    ]
+  },
+  "homepage-survey-band": {
+    "surface": "fo",
+    "category": "banners",
+    "status": "variant",
+    "tags": [
+      "wietsedemo",
+      "monitorband"
+    ]
+  },
+  "idea-card": {
+    "surface": "fo",
+    "category": "cards",
+    "status": "canonical",
+    "tags": [
+      "ideation",
+      "proposals"
+    ]
+  },
+  "idea-feed": {
+    "surface": "fo",
+    "category": "content",
+    "status": "canonical",
+    "tags": [
+      "ideation",
+      "feed"
+    ],
+    "layer": "pattern"
+  },
+  "issue-canvas": {
+    "surface": "fo",
+    "category": "content",
+    "status": "canonical",
+    "tags": [
+      "perspectives",
+      "canvas"
+    ]
+  },
+  "login-modal": {
+    "surface": "fo",
+    "category": "modals",
+    "status": "canonical",
+    "tags": [
+      "auth",
+      "dialog"
+    ]
+  },
+  "participation-bar": {
+    "surface": "fo",
+    "category": "misc",
+    "status": "canonical",
+    "tags": [
+      "sticky",
+      "cta"
+    ]
+  },
+  "participation-box": {
+    "surface": "cross",
+    "category": "misc",
+    "status": "canonical",
+    "tags": [
+      "parallel-participation",
+      "cta"
+    ]
+  },
+  "phase-timeline": {
+    "surface": "fo",
+    "category": "navigation",
+    "status": "canonical",
+    "tags": [
+      "phases",
+      "stepper"
+    ]
+  },
+  "poll": {
+    "surface": "fo",
+    "category": "survey",
+    "status": "canonical",
+    "tags": [
+      "wietsedemo",
+      "method"
+    ]
+  },
+  "project-card": {
+    "surface": "fo",
+    "category": "cards",
+    "status": "canonical",
+    "tags": [
+      "rail",
+      "boxed"
+    ]
+  },
+  "proposal-threshold": {
+    "surface": "fo",
+    "category": "voting",
+    "status": "canonical",
+    "tags": [
+      "proposals",
+      "votes"
+    ]
+  },
+  "signed-out-hero": {
+    "surface": "fo",
+    "category": "banners",
+    "status": "variant",
+    "tags": [
+      "stlouis",
+      "banner"
+    ]
+  },
+  "spotlight": {
+    "surface": "fo",
+    "category": "banners",
+    "status": "canonical",
+    "tags": [
+      "homepage",
+      "media"
+    ]
+  },
+  "spotlight-carousel": {
+    "surface": "fo",
+    "category": "cards",
+    "status": "variant",
+    "tags": [
+      "falkirk",
+      "rail"
+    ],
+    "layer": "pattern"
+  },
+  "sticky-note": {
+    "surface": "fo",
+    "category": "cards",
+    "status": "canonical",
+    "tags": [
+      "perspectives",
+      "pastel"
+    ]
+  },
+  "survey-band": {
+    "surface": "fo",
+    "category": "survey",
+    "status": "canonical",
+    "tags": [
+      "cta",
+      "strip"
+    ]
+  },
+  "survey-fields": {
+    "surface": "fo",
+    "category": "survey",
+    "status": "canonical",
+    "tags": [
+      "fieldkit",
+      "runner"
+    ]
+  },
+  "theme-card": {
+    "surface": "fo",
+    "category": "cards",
+    "status": "canonical",
+    "tags": [
+      "perspectives",
+      "category"
+    ]
+  },
+  "twocol-accordion": {
+    "surface": "fo",
+    "category": "content",
+    "status": "canonical",
+    "tags": [
+      "stlouis",
+      "faq"
+    ],
+    "layer": "pattern"
+  },
+  "volunteer-cause": {
+    "surface": "fo",
+    "category": "cards",
+    "status": "canonical",
+    "tags": [
+      "volunteering",
+      "cause"
+    ]
+  },
+  "voting": {
+    "surface": "fo",
+    "category": "events",
+    "status": "review",
+    "tags": [
+      "wietsedemo",
+      "events-section"
+    ],
+    "layer": "pattern"
+  }
+}

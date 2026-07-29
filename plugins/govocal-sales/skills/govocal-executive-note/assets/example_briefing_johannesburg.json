@@ -1,0 +1,193 @@
+{
+  "client": "City of Johannesburg",
+  "language": "en",
+  "mode": "greenfield",
+  "cover": {
+    "label_left": "GO VOCAL  ·  CITY OF JOHANNESBURG",
+    "title": "Start citywide\nengagement with us.",
+    "subtitle": "Why Go Vocal is the right engagement platform for the City of Johannesburg — one centralized hub across every department and region, with the built-in best practices and global peer network a city of this scale and diversity needs to succeed.",
+    "logo": {
+      "path": "brand/go_vocal_logo.png",
+      "caption": ""
+    },
+    "city_logo": {
+      "path": "brand/city_logos/johannesburg.png",
+      "width_cm": 5.5,
+      "caption": ""
+    }
+  },
+  "intro_paragraphs": [
+    "The City of Johannesburg has the vision: consistent, citywide community engagement that reaches residents across all seven regions, delivered inclusively and at the pace decision-makers need. You also have the raw material — statutory IDP consultations, ward committees, and departments already gathering community input every day. What's missing is a single place to do it from. This note is for the City of Johannesburg evaluation team as you assess how to consolidate engagement onto one platform, and sets out what that one place looks like when you choose Go Vocal.",
+    "Go Vocal is the most complete and modern engagement platform on the market. In 2025, People Powered rated Go Vocal #1 in the world, with a perfect score of 100/100 on features — the top-ranked platform among 30 international digital participation tools. Since 2015, we've worked with more than 640 local governments, from cities standing up their first citywide platform to globally recognized leaders in participation.",
+    "What follows is a practical read — written to be scanned top-to-bottom and referred back to as the cross-departmental evaluation team compares options. It focuses on five areas where cities of Johannesburg's scale and diversity tell us Go Vocal makes the biggest difference, grounded in what we understand about where the City wants to take community participation next."
+  ],
+  "numbers": [
+    {
+      "value": "4.7 / 5",
+      "label": "Customer Satisfaction Score",
+      "icon": "brand/icons/icon1_csat.png"
+    },
+    {
+      "value": "40",
+      "label": "Countries we work in",
+      "icon": "brand/icons/icon2_countries.png"
+    },
+    {
+      "value": "640+",
+      "label": "Governments we have worked with",
+      "icon": "brand/icons/icon3_governments.png"
+    },
+    {
+      "value": "100/100",
+      "label": "People Powered score",
+      "icon": "brand/icons/icon4_peoplepowered.png"
+    },
+    {
+      "value": "27,100",
+      "label": "Projects launched",
+      "icon": "brand/icons/icon5_projects.png"
+    },
+    {
+      "value": "2,000",
+      "label": "Monthly active admins",
+      "icon": "brand/icons/icon6_admins.png"
+    }
+  ],
+  "section_intro": "Across our conversations with cities standing up a centralized engagement platform, five areas come up again and again as the places where teams feel a meaningful improvement. For each, we've framed the opportunity as we understand it for a city like Johannesburg, and then described the features and services that do the most to address it.",
+  "usps": [
+    {
+      "title": "Combine every channel — online, paper and in-person — in one hub",
+      "image": {
+        "path": "product/usp1_formsync.png",
+        "caption": ""
+      },
+      "opportunity": "Public meetings and ward committees alone no longer reach Johannesburg's full community — work schedules, transport, the size of the city, and a population that speaks many languages mean the voices you most want to hear often don't make it into a single record. Relying on a digital form alone flips the same problem: the digitally connected over-participate, and residents in less-connected areas go unheard. Today that input is scattered — handwritten forms from community events, notes from imbizos and ward meetings, comments logged through Joburg Connect, and online submissions all live in different places. Go Vocal closes that loop: a single environment where digital, paper, and in-person inputs flow into the same dataset, with a live view of who you're reaching — by region, language, and demographic — and who you're not. The benefit: engagement that's both more inclusive and more defensible when the results land in a council report.",
+      "features_intro": "One place to collect feedback from every channel, with a live view of who you're hearing from across Johannesburg, and who you're missing.",
+      "features": [
+        {
+          "name": "360 Input data repository",
+          "desc": "A single workspace where every input — online submissions, scanned paper forms, meeting notes, audio, photos and uploaded documents — is ingested, automatically transcribed where needed, tagged, and analyzed together, so the full picture is in one place rather than scattered across departments and regions."
+        },
+        {
+          "name": "FormSync 2.0 — digitizing paper participation",
+          "desc": "OCR and AI scan and digitize handwritten surveys and comment cards at roughly 95% accuracy in minutes, recognizing handwriting across multiple languages. Offer paper options at libraries, clinics and community events knowing those inputs are analyzed with the same rigour as online submissions — no manual re-keying."
+        },
+        {
+          "name": "ECHO — voice-to-insight from in-person sessions",
+          "desc": "Record ward meetings, imbizos and workshops on a phone or tablet; ECHO by Dembrane automatically transcribes the conversation, supports multilingual transcripts and translations, and feeds structured insights straight into the platform — so spoken contributions become part of the data, not sidelined."
+        },
+        {
+          "name": "Representativeness Dashboard",
+          "desc": "Compare actual participant demographics against Johannesburg's population baseline in real time, so you know early which regions or language communities are under-represented — and can course-correct outreach mid-project, before results are published."
+        }
+      ]
+    },
+    {
+      "title": "Automated periodic reporting and a live view for leadership",
+      "image": {
+        "path": "product/usp2_sensemaking.png",
+        "caption": ""
+      },
+      "opportunity": "Today, staff manually code resident feedback into spreadsheets and write up reports by hand — a bottleneck that only tightens as engagement scales across departments and regions. Meanwhile, the City Manager, MMCs and regional leadership need insight fast: with multiple engagement projects running at once, decisions sometimes have to move quickly. Go Vocal's AI does the heavy lifting inside the platform, and the reporting tools turn the output into the deliverables leadership expects — on a regular cadence rather than as a one-off scramble. Clients report roughly a 55% reduction in reporting cycle time compared with manual workflows, so a lean team keeps up with a larger volume of engagement and leadership gets a clearer, quicker picture of what residents are saying.",
+      "features_intro": "World-class analysis and reporting, so the input your teams collect actually reaches the people making decisions.",
+      "features": [
+        {
+          "name": "AI Sensemaking",
+          "desc": "Auto-tagging, clustering, summarization, and cross-project themes across thousands of open-text inputs, with natural-language Q&A on the data — and every AI output traceable back to the original contributions, with a human able to review and correct before anything is reported."
+        },
+        {
+          "name": "Report Builder & ready-made reports",
+          "desc": "Pre-built report templates per engagement method generate a branded draft in one click; the Report Builder then lets teams compose custom reports — charts, quotes, narrative — and publish them back to residents to close the loop. Quarterly platform and benchmark reports keep every department on a shared baseline."
+        },
+        {
+          "name": "Community Monitor — always-on leadership dashboard",
+          "desc": "An always-on resident sentiment tracker across public trust, service-delivery performance and quality of life, with quarter-over-quarter benchmarking dashboards and automated reports — so leadership sees how sentiment shifts in response to City decisions, and spots issues before they escalate."
+        }
+      ]
+    },
+    {
+      "title": "Efficient workflows for cross-department and cross-region collaboration",
+      "image": {
+        "path": "product/usp3_dashboard.png",
+        "caption": "",
+        "placement": "full"
+      },
+      "opportunity": "Johannesburg's biggest risk isn't launching the tool — it's the month after, when several departments and regional offices are running projects at the same time and no one can see the full picture. Right now that coordination is scattered across different tools, QR codes, email threads and spreadsheets. Go Vocal pulls it into one place: every project, approval, portfolio and permission lives on the same platform. A head of public participation can open one screen and see every project the City is running, where each one stands, and who owns it. The result: faster cycle times, cleaner handoffs between teams, and a coherent resident experience across the whole city.",
+      "features_intro": "A back-office designed around how a city actually delivers engagement at scale.",
+      "features": [
+        {
+          "name": "Publication & approval workflows",
+          "desc": "Configurable states (draft → review → publish) with roles that map to Johannesburg's departments and regions; nothing goes live without the right sign-offs, and a management feed gives a full audit trail of who did what."
+        },
+        {
+          "name": "Project templates & Inspiration Hub",
+          "desc": "Standardize how a consultation, participatory budget or planning project is set up so every team starts from a known-good baseline — and copy proven designs from a searchable library of real projects run by governments worldwide, even on a team's first project."
+        },
+        {
+          "name": "Roles, permissions & smart groups",
+          "desc": "Granular permissions per project, per phase and per department or region, plus dynamic smart groups that segment residents by area or behaviour for targeted projects and messaging."
+        },
+        {
+          "name": "Planning, campaigns & integrations",
+          "desc": "A shared project calendar to coordinate timelines, segmented email and newsletter campaigns with automated invites and reminders from inside the platform, and webhooks/automations to connect Go Vocal to the tools the City already uses."
+        }
+      ]
+    },
+    {
+      "title": "An accessible, multilingual resident experience",
+      "image": {
+        "path": "product/usp4_map.png",
+        "caption": ""
+      },
+      "opportunity": "Two out of three residents now visit engagement platforms on a phone, and in a city as large and linguistically diverse as Johannesburg — where many residents don't engage in English by default — the experience itself is what decides whether someone participates at all. Go Vocal is designed around that reality: mobile-first, WCAG 2.2 AA accessible, available in many languages, with carousels instead of endless scroll, lightweight animations that guide the eye, and a homepage that adapts to each resident's region and interests so the projects most relevant to them surface first. Paired with no-code builders, your team can shape that experience without developers in the loop — which matters when the list of engagement projects is growing across the city.",
+      "features_intro": "A modern, multilingual resident experience, paired with no-code builders that put content, forms and reports back in the hands of the City's engagement team.",
+      "features": [
+        {
+          "name": "Mobile-first, adaptive resident UX",
+          "desc": "Fully branded, WCAG 2.2 AA compliant, and designed for non-technical residents — with horizontal carousels, micro-animations, a page-based survey flow, auto-save, and a personalized homepage that surfaces projects based on a resident's region and interests."
+        },
+        {
+          "name": "Native multilingual platform",
+          "desc": "Run and publish content in multiple languages with full manual control, or layer on automatic translation (Weglot) on top of the platform — including right-to-left support — so residents can navigate, understand and participate in the language they're most comfortable in."
+        },
+        {
+          "name": "Map surveys for planning",
+          "desc": "Powered by ESRI ArcGIS, residents can see draft plans and drop pins, draw lines and polygons directly on a map — ideal for spatial planning, transport, public space and informal-settlement upgrading use cases, with responses visualized as heatmaps."
+        },
+        {
+          "name": "Three no-code builders (CMS)",
+          "desc": "Content Builder, Form/Survey Builder and Report Builder — drag-and-drop tools that let the participation team design project pages, rich surveys (with conditional logic and map questions) and living reports, all without developer support."
+        }
+      ]
+    },
+    {
+      "title": "Best practices and a global peer network",
+      "image": {
+        "path": null,
+        "caption": ""
+      },
+      "opportunity": "A city standing up citywide engagement doesn't just need software — it needs somewhere to turn while building internal muscle and a new practice. Go Vocal is as much a community as a product: hundreds of governments worldwide running real engagement, a dedicated 15-person product team building full-time in close partnership with clients, and a Government Success Manager whose job is to get you to outcomes. Around the product, we invest deliberately in a community of practice and engagement best practices baked into the platform — because the tool alone doesn't create outcomes; what your team does with it, with the right support, does.",
+      "features_intro": "Three commitments that make the depth of support — and the speed of your team's learning curve — tangible from day one.",
+      "features": [
+        {
+          "name": "Client-led roadmap, shipped fast",
+          "desc": "A dedicated product team working in focused 8–10-week cycles — 30 major features shipped in 2025 alone — with a transparent roadmap influenced by a client council, and new features reaching everyone on the platform the moment they ship."
+        },
+        {
+          "name": "Community of practice & Inspiration Hub",
+          "desc": "Client-exclusive community sessions and a peer network of 500+ practitioners exchanging openly, complemented by an in-platform Inspiration Hub where your team can browse how other governments designed, launched and reported on a similar project. You don't start from a blank page."
+        },
+        {
+          "name": "Dedicated Government Success Manager",
+          "desc": "Your Government Success Manager walks alongside your team — from onboarding through your first projects and beyond — with quarterly data and impact reports, help designing new engagements, strategic reviews, and escalation into the product team when needed. We measure ourselves on your outcomes."
+        }
+      ]
+    }
+  ],
+  "bottom_line": {
+    "paragraphs": [
+      "Go Vocal is the right platform for the City of Johannesburg because it's not only the most complete toolbox on the market; it's the one that comes with built-in engagement best practices, a global peer network, and a dedicated success team — everything a city of this scale and diversity needs to consolidate engagement quickly, defensibly, and across every department and region."
+    ],
+    "closer_italic": "We'd be proud to be the platform the City of Johannesburg grows with."
+  }
+}
