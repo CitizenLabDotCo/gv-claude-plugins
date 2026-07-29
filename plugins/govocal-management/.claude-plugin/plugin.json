@@ -1,0 +1,14 @@
+{
+  "name": "govocal-management",
+  "displayName": "Go Vocal Management",
+  "description": "Leadership & reporting toolkit: 1:1 follow-ups, CEO client check-ins, revenue analysis, LinkedIn content, weekly team updates and digests, misalignment radar.",
+  "author": {
+    "name": "Go Vocal"
+  },
+  "repository": "https://github.com/CitizenLabDotCo/gv-claude-plugins",
+  "keywords": [
+    "go-vocal",
+    "internal",
+    "leadership"
+  ]
+}

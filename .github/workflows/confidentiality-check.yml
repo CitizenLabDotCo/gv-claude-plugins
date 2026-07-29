@@ -1,0 +1,33 @@
+name: Confidentiality check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Scan changed lines for confidential content
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_REF: ${{ github.base_ref }}
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
+        run: |
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            git fetch origin "$BASE_REF" --depth=1 || true
+            RANGE="origin/${BASE_REF}...HEAD"
+          elif [ "$BEFORE_SHA" != "0000000000000000000000000000000000000000" ] && git cat-file -e "$BEFORE_SHA" 2>/dev/null; then
+            RANGE="${BEFORE_SHA}..${AFTER_SHA}"
+          else
+            # New branch or force-push with unknown base: scan against parent commit
+            RANGE="HEAD~1..HEAD"
+          fi
+          echo "Scanning range: $RANGE"
+          python3 scripts/confidentiality_scan.py --range "$RANGE" plugins/govocal-management | tee "$GITHUB_STEP_SUMMARY"
+          exit "${PIPESTATUS[0]}"

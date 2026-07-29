@@ -37,8 +37,26 @@ CONTRIBUTING.md               ← house rules — read before editing
 | **govocal-sales** | Sales & bid teams | tender-review, govocal-executive-note, competitor-battlecard, intent-signals-radar |
 | **govocal-gs** | Government Success | govocal-account-plan |
 | **govocal-general** | Everyone | govocal-brand, product-expert, skill-sync |
+| **govocal-management** | Team leads & leadership | 121-followup, ceo-client-checkins, cfo-revenues, linkedin-post, linkedin-content-calendar, weekly-updater, v1-weekly-product-escalations, v1-weekly-wins-losses-updates, voc-gs-weekly-digest, misalignment-radar, interesting-reads-digest |
 
 > `vibe-coding` was renamed to `govocal-coding` (July 2026). If you had it installed, remove it and install `govocal-coding` instead.
+
+## Confidentiality gate (govocal-management)
+
+Every push touching `plugins/govocal-management/` runs the **Confidentiality check** GitHub
+Action: it scans the *lines you added* for credentials, embedded financial figures
+(€/MRR/ARR/ACV/eNPS + numbers), client health/churn data, CRM/meeting deep links, and
+personal email addresses. Findings turn the check red — fictionalize the examples or get an
+explicit owner decision before pushing anyway. Existing content is grandfathered. Run it
+locally with:
+
+```
+python3 scripts/confidentiality_scan.py --range origin/main..HEAD plugins/govocal-management
+```
+
+Most govocal-management skills are currently wired to Wietse's accounts — genericize before
+another leader adopts one. Board-level material (BoD deck drafter) deliberately lives outside
+this repo.
 
 ## House rules (short version)
 
