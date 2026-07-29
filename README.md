@@ -36,7 +36,7 @@ CONTRIBUTING.md               ← house rules — read before editing
 | **govocal-paas** | Participation-as-a-service delivery | govocal-metabase, project-library-finder, govocal-project-intake, govocal-project-setup, content-plan, strategic-project-planning |
 | **govocal-sales** | Sales & bid teams | tender-review, govocal-executive-note, competitor-battlecard, intent-signals-radar |
 | **govocal-gs** | Government Success | govocal-account-plan |
-| **govocal-general** | Everyone | govocal-brand, product-expert |
+| **govocal-general** | Everyone | govocal-brand, product-expert, skill-sync |
 
 > `vibe-coding` was renamed to `govocal-coding` (July 2026). If you had it installed, remove it and install `govocal-coding` instead.
 
