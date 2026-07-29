@@ -38,7 +38,7 @@ A skill often exists in several places. Known stores:
 
 ## Pull (repo → local)
 
-1. `claude plugin marketplace update <marketplace-name>` refreshes all installed plugins.
+1. `claude plugin marketplace update <marketplace-name>` refreshes all installed plugins. (The govocal-general plugin ships a session-start hook that does this automatically once a week; the manual command forces an immediate refresh.)
 2. If a duplicate of a repo-managed skill still exists in `~/.claude/skills/`, a project folder, or the desktop store, flag it: it will drift. Recommend deleting the duplicate (with the user's OK) so the installed plugin is the only copy.
 
 ## Drift check (both directions)

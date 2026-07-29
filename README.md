@@ -39,6 +39,13 @@ CONTRIBUTING.md               ← house rules — read before editing
 | **govocal-general** | Everyone | govocal-brand, product-expert, skill-sync |
 | **govocal-management** | Team leads & leadership | 121-followup, ceo-client-checkins, cfo-revenues, linkedin-post, linkedin-content-calendar, weekly-updater, v1-weekly-product-escalations, v1-weekly-wins-losses-updates, voc-gs-weekly-digest, misalignment-radar, interesting-reads-digest |
 
+## Staying in sync
+
+Installing **govocal-general** also installs a session-start hook that refreshes this
+marketplace automatically **once a week** on that machine (`hooks/weekly-sync.sh`; stamp
+file `~/.claude/.gv-plugins-last-sync`). Manual pull anytime:
+`/plugin marketplace update gv-claude-plugins`.
+
 > `vibe-coding` was renamed to `govocal-coding` (July 2026). If you had it installed, remove it and install `govocal-coding` instead.
 
 ## Confidentiality gate (govocal-management)
