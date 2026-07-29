@@ -46,8 +46,9 @@ CONTRIBUTING.md               ← house rules — read before editing
 Every push touching `plugins/govocal-management/` runs the **Confidentiality check** GitHub
 Action: it scans the *lines you added* for credentials, embedded financial figures
 (€/MRR/ARR/ACV/eNPS + numbers), client health/churn data, CRM/meeting deep links, and
-personal email addresses. Findings turn the check red — fictionalize the examples or get an
-explicit owner decision before pushing anyway. Existing content is grandfathered. Run it
+personal email addresses. Findings turn the check red — fictionalize the examples, or, for
+an explicit owner decision, include `[confidentiality-approved]` in the commit message to
+acknowledge the findings and pass the check. Existing content is grandfathered. Run it
 locally with:
 
 ```

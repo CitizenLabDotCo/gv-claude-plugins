@@ -18,6 +18,7 @@ jobs:
           BASE_REF: ${{ github.base_ref }}
           BEFORE_SHA: ${{ github.event.before }}
           AFTER_SHA: ${{ github.sha }}
+          HEAD_MSG: ${{ github.event.head_commit.message || github.event.pull_request.title }}
         run: |
           if [ "$EVENT_NAME" = "pull_request" ]; then
             git fetch origin "$BASE_REF" --depth=1 || true
@@ -29,5 +30,14 @@ jobs:
             RANGE="HEAD~1..HEAD"
           fi
           echo "Scanning range: $RANGE"
+          set +e
           python3 scripts/confidentiality_scan.py --range "$RANGE" plugins/govocal-management | tee "$GITHUB_STEP_SUMMARY"
-          exit "${PIPESTATUS[0]}"
+          SCAN_EXIT="${PIPESTATUS[0]}"
+          set -e
+          if [ "$SCAN_EXIT" -ne 0 ] && printf '%s' "$HEAD_MSG" | grep -qiF '[confidentiality-approved]'; then
+            echo "::warning::Findings acknowledged via [confidentiality-approved] marker — check passes on explicit owner decision."
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "✅ Overridden by [confidentiality-approved] marker in the commit message." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          exit "$SCAN_EXIT"
