@@ -1,0 +1,16 @@
+{
+  "name": "gv-claude-plugins",
+  "owner": {
+    "name": "Go Vocal"
+  },
+  "metadata": {
+    "description": "Go Vocal's internal plugin marketplace — the single source of truth for shared Claude skills."
+  },
+  "plugins": [
+    {
+      "name": "vibe-coding",
+      "source": "./plugins/vibe-coding",
+      "description": "Shared vibe-coded skills maintained by Wietse, Jeroen, Irene and Rob."
+    }
+  ]
+}
