@@ -36,6 +36,11 @@
       "name": "govocal-management",
       "source": "./plugins/govocal-management",
       "description": "Leadership & reporting toolkit — 1:1 follow-ups, CEO check-ins, revenues, LinkedIn content, weekly updates, misalignment radar, interesting-reads digest. Pushes to this plugin are confidentiality-gated."
+    },
+    {
+      "name": "govocal-reporting",
+      "source": "./plugins/govocal-reporting",
+      "description": "Client reporting toolkit — /project-report generates a styled client-facing project report (PDF) from a platform's reporting MCP. Benchmarks in marked test mode pending MCP expansion. Maintained by Irene."
     }
   ]
 }
