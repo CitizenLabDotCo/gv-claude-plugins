@@ -29,7 +29,7 @@ Pull, scoped to the project (and window if given):
 9. Demographics of participants vs ALL registered users (the representativeness base) — `reporting_user_question_answers`, `reporting_users`
 9b. Official population base (Representativeness dashboard): clients/CSMs can upload census data per demographic field at `<tenant>/admin/dashboard/representation`. Not in the reporting MCP — fetch via the signed-in browser: `GET <tenant>/web_api/v1/users/custom_fields/<field_id>/reference_distribution` (admin-auth; 404 = nothing uploaded for that field; field ids from `list_user_custom_fields`). If present, this is the authoritative participants-vs-population base — prefer it over any external lookup.
 10. Anonymous share of contributions (`user_id IS NULL`)
-11. Survey open-text answers: `value_text` where `question_type IN ('text','multiline_text')` — sample if >200
+11. Survey open-text answers: `value_text` where `question_type IN ('text','multiline_text')` — pull ALL of them (chunk the queries if needed). Never sample for conclusions (see §3).
 
 ## 2. Derived metrics
 
@@ -43,10 +43,19 @@ Pull, scoped to the project (and window if given):
 
 ## 3. Text & voice (qualitative)
 
-- Fetch a purposive sample of idea bodies/comments via `get_resource`: top-engagement, most-contested, 1–2 per top theme (idea/comment text is NOT in the SQL views).
-- Summarize per theme and per open question (2–4 sentences); always state the base ("based on 143 open answers").
+**Coverage rule — legitimacy depends on it: every open answer gets read and coded. Sampling is allowed for exactly two things: codebook induction and QA. Never for conclusions.** In municipal contexts "we read a representative 19%" does not survive a council question; "all 587 answers were read and categorized" does. Sampling also misses the tail (novel proposals, legal/safety flags, allegations) — the items a city can least afford to have skipped.
+
+Two-stage protocol for open text:
+1. **Induce the codebook** from a ~50–100 answer sample: themes, stances. Sampling ends here.
+2. **Code 100% of answers** against the codebook in chunked passes (above ~2k answers, fan out to subagents), tagging per answer: theme(s), stance, campaign-duplicate suspicion, notable/outlier flag (novel idea, legal/safety concern, case needing individual follow-up), PII flag. Include an "other/new theme" escape hatch; if it accumulates, extend the codebook and re-pass the residue.
+3. Campaign/duplicate counting is **mechanical, not model judgment**: exact + near-duplicate detection in SQL/code; report the count of campaign-identical submissions vs distinct voices explicitly (it is a finding, and an estimate of it is attackable where a count is not).
+4. **QA audit**: independently re-code a random ~50-answer slice and report agreement in method notes ("AI-coded, validated on a 50-answer audit, 92% agreement").
+5. Report **exact counts, not extrapolations** ("201 of 587 answers call for…"), surface every notable-flagged answer to the PM (separately, not necessarily in the client report), and state the coverage sentence in method notes: "All N open answers were read and categorized; percentages are counts, not estimates."
+
+- For ideation projects, idea/comment text is NOT in the SQL views (known MCP gap): fetch what's reachable and apply the same coverage rule to whatever corpus is obtained; if full text is unreachable, say so — partial coverage must be declared, never silent.
+- Summarize per theme and per open question (2–4 sentences); always state the base ("based on all 587 open answers").
 - Quotes: 3–6 verbatim, ≤30 words, across themes AND stances (≥1 dissenting voice), anonymous ("a resident"), PII-screened. A quote illustrates a data-backed finding, never carries a claim alone.
-- Sentiment: use `sentiment_linear_scale`/`rating` scores where instrumented; otherwise AI-classify sampled text and report coarsely ("roughly two-thirds supportive — AI-assessed on N answers"). Never decimal precision on AI sentiment.
+- Sentiment: use `sentiment_linear_scale`/`rating` scores where instrumented; otherwise AI-classify the full open-text corpus (stance is part of the coding pass) and report coarsely ("two-thirds supportive — AI-coded on all N answers, audit agreement X%"). Never decimal precision on AI sentiment.
 - Contested topics: read contested inputs' threads; characterize the axis of disagreement. Division is signal, not failure → converts to a recommendation (options survey, deliberative follow-up).
 - Cross-group patterns (max 1–3): cross-tab answers/themes × demographics via SQL (join through input author). Every compared group ≥20 participants; rank by effect size; comparative language only ("about twice as likely"); correlation not causation; each pattern ends with one "so what" sentence.
 - Local context enrichment: if a pattern has a place/group dimension, WebSearch official sources (statistics office, municipal district profiles) to interpret it. Cite source+year, neutral official terminology (never "impoverished"), frame as hypothesis for the PM to confirm ("consistent with"). Area data describes places, not the individuals who spoke.
