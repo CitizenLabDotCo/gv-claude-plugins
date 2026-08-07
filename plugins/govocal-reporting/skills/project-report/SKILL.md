@@ -27,6 +27,7 @@ Pull, scoped to the project (and window if given):
 7. If voting phase: results = `SUM(weight)` per input + offline votes; ballots = distinct voters — `reporting_input_votes`
 8. If survey phase: per question — AVG/distribution on `value_numeric` (scales/ratings/sentiment), option counts on `value_text` — `reporting_input_question_answers`. Flag ranking/matrix/mapping questions as not covered.
 9. Demographics of participants vs ALL registered users (the representativeness base) — `reporting_user_question_answers`, `reporting_users`
+9b. Official population base (Representativeness dashboard): clients/CSMs can upload census data per demographic field at `<tenant>/admin/dashboard/representation`. Not in the reporting MCP — fetch via the signed-in browser: `GET <tenant>/web_api/v1/users/custom_fields/<field_id>/reference_distribution` (admin-auth; 404 = nothing uploaded for that field; field ids from `list_user_custom_fields`). If present, this is the authoritative participants-vs-population base — prefer it over any external lookup.
 10. Anonymous share of contributions (`user_id IS NULL`)
 11. Survey open-text answers: `value_text` where `question_type IN ('text','multiline_text')` — sample if >200
 
@@ -37,7 +38,7 @@ Pull, scoped to the project (and window if given):
 - Conversation ratio: comments per input; % inputs with ≥1 comment.
 - Closing-the-loop coverage: % non-survey inputs with feedback or non-default status; % still 'proposed'. This is the conscience metric.
 - Momentum curve: weekly contributions annotated with phase boundaries.
-- Representativeness gaps: participant share vs registered share per demographic; flag gaps >10pp.
+- Representativeness gaps, three-tier base: (1) uploaded reference distribution (step 9b) if present → compare participants vs population, label "official base data uploaded to your platform"; (2) else derive a population base from official statistics (WebSearch census/statistics office), label the source+year and frame as approximate; (3) always also show participants vs registered users. Flag gaps >10pp. Whenever tier 1 is empty, add a recommendation: upload census base data via the Representativeness dashboard (`/admin/dashboard/representation`) so future reports use the official base.
 - Controversy index (ideation/proposals): per input & theme, dislike share among reactions (floor: ≥10 reactions); 30–70% dislikes + above-median comments = contested.
 
 ## 3. Text & voice (qualitative)
