@@ -48,9 +48,13 @@ Pull, scoped to the project (and window if given):
 Two-stage protocol for open text:
 1. **Induce the codebook** from a ~50–100 answer sample: themes, stances. Sampling ends here.
 2. **Code 100% of answers** against the codebook in chunked passes (above ~2k answers, fan out to subagents), tagging per answer: theme(s), stance, campaign-duplicate suspicion, notable/outlier flag (novel idea, legal/safety concern, case needing individual follow-up), PII flag. Include an "other/new theme" escape hatch; if it accumulates, extend the codebook and re-pass the residue.
-3. Campaign/duplicate counting is **mechanical, not model judgment**: exact + near-duplicate detection in SQL/code; report the count of campaign-identical submissions vs distinct voices explicitly (it is a finding, and an estimate of it is attackable where a count is not).
-4. **QA audit**: independently re-code a random ~50-answer slice and report agreement in method notes ("AI-coded, validated on a 50-answer audit, 92% agreement").
-5. Report **exact counts, not extrapolations** ("201 of 587 answers call for…"), surface every notable-flagged answer to the PM (separately, not necessarily in the client report), and state the coverage sentence in method notes: "All N open answers were read and categorized; percentages are counts, not estimates."
+3. Campaign/duplicate counting is **mechanical, not model judgment**: exact + near-duplicate detection in SQL/code. Report the unique-text share explicitly — "coordinated but individually written" vs "copy-paste campaign" are different findings, both legitimacy-relevant, and an estimate of either is attackable where a count is not.
+4. **QA audit**: independently re-code a deterministic ~50-answer slice (e.g. `idx % 12 = 0`) with a separate agent and report agreement in method notes ("92% stance agreement, 94% theme overlap on a 48-answer independent audit").
+5. Report **exact counts, not extrapolations** ("239 of 587 answers call for…"), and state the coverage sentence in method notes: "All N open answers were read and categorized; percentages are counts, not estimates."
+
+Codebook rule: code contested topics **bidirectionally** — separate codes for each direction (e.g. downtown-more AND downtown-less), never a single "downtown" code. Sampling and one-direction codes both hide minority counter-camps; in the St. Louis pilot the exhaustive bidirectional pass revealed a pro-Downtown camp exactly as large as the anti-Downtown one (12% each) that the sampled draft had missed entirely.
+
+**Follow-up list deliverable (produce whenever any answers get flagged):** notable- and PII-flagged answers go into a separate companion document, NOT the client report. Same styled HTML→PDF pipeline as the report, saved as `report-<slug>-followup.pdf`, stamped "INTERNAL — PROJECT TEAM ONLY". Group rows into: hardship / individual cases (suggest case-management follow-up), allegations & legal-safety concerns (suggest review), and novel concrete proposals (inputs to implementation). Each row: answer index + one-line reason; PII answers listed by index only, never quoted; include the SQL snippet that retrieves full texts by index. The client report references its existence ("delivered to the project team separately") without printing any flagged content. This list is often the single most actionable output for the PM — residents disclosing unresolved hardship, safety allegations, or time-sensitive items deserve individual handling, not aggregation.
 
 - For ideation projects, idea/comment text is NOT in the SQL views (known MCP gap): fetch what's reachable and apply the same coverage rule to whatever corpus is obtained; if full text is unreachable, say so — partial coverage must be declared, never silent.
 - Summarize per theme and per open question (2–4 sentences); always state the base ("based on all 587 open answers").
@@ -93,6 +97,8 @@ Write the report to the scratchpad as `report-<slug>.html`, then print to PDF.
 **PDF**: wait for charts to render, then:
 `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=<scratchpad>/report-<slug>.pdf --virtual-time-budget=10000 file://<path to html>`
 Copy the PDF to `~/Desktop/` and tell the user both paths.
+
+**Every deliverable ships as styled PDF via this same pipeline** — including the follow-up list (`report-<slug>-followup.pdf`, see §3) when one exists. No raw .md/.txt deliverables.
 
 ## Hard guardrails
 
