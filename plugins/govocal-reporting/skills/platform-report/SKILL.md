@@ -66,6 +66,8 @@ Concrete, platform-doable, tied to the scorecard ("6 projects closed without fee
 
 ## 2. Rules
 - Staff-practice findings are framed as capability-building, not surveillance: aggregate first, anecdotes anonymized-by-default, individual naming only for praise.
+- Copy check on practice findings: no accusatory absolutes ("wrote nothing back to residents", "failed to") — state the number, then frame the next step ("written feedback hasn't started yet; 59 ideas are awaiting a response"). The reader is the person who has to act on it.
+- Benchmark disclosure: share the client's position, the cohort *definition*, and the cohort median — never other tenants' names, their individual values, or exact cohort counts.
 - Never compare departments/PMs on raw volume without workload context.
 - Community monitor: suppress below minimum n; state n always.
 - Benchmarks: real or absent — never estimated (inherits project-report §4 test-mode rule until GAP-N tooling exists).
@@ -80,6 +82,7 @@ Same HTML → headless-Chrome → PDF pipeline as the project report.
 - **KPI rows**: each section opens with a row of stat tiles — big numeral, small label, and the period delta as ▲/▼ with sign and absolute value ("▲ +1,240 (+18%)"). Delta color is redundant with the arrow (colorblind-safe); reference-period values in muted gray beneath. Never a delta without its absolute.
 - **Charts: Vega-Lite, one shared theme config**: minimal gridlines, direct labels over legends, one accent per chart, an annotation carrying the takeaway. Conventions: momentum = area chart with project-launch markers; funnel = horizontal bars with conversion rates between stages; representativeness = dumbbell/paired bars; period comparisons = slope charts or paired bars (never grouped-bar forests); per-project league table = table with inline bars and sparklines; **best-practice scorecard = table with trend arrows and a filled/unfilled dot scale, no traffic-light red** (practice findings are capability-building, not grading — see §2).
 - **Density with hierarchy**: two-column stat layouts allowed; every page answers "so what" in one bold-serif sentence near the top. The executive summary page must stand alone if torn off.
+- **Benchmark highlight card** (Library-style): the headline benchmark gets an accent-filled card — big serif value + unit label on the left, ribbon rows on the right (🏅 rank within cohort definition, multiple-of-median, cohort/Library identity). Positions and medians only, per the disclosure rule.
 - **Council one-pager**: derived from the same data pull and theme — exec summary bullets + the three most decision-relevant charts, nothing else.
 - **Print CSS**: `@page { size: A4; margin: 18mm }`; let content flow naturally — NEVER force a page break before each section (it strands half-empty pages after short sections; learned in the Falkirk test). Instead: `break-inside:avoid` on atomic blocks (charts, KPI tiles, tables, quotes, list items) and `break-after:avoid` on headings. Running footer with platform name, period, vs-period, and generation date.
 
