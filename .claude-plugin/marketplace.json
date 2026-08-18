@@ -40,7 +40,7 @@
     {
       "name": "govocal-reporting",
       "source": "./plugins/govocal-reporting",
-      "description": "Client reporting toolkit — /project-report generates a styled client-facing project report (PDF) from a platform's reporting MCP. Benchmarks in marked test mode pending MCP expansion. Maintained by Irene."
+      "description": "Client reporting toolkit — /project-report generates a styled client-facing project report (PDF) from a platform's reporting MCP; draft recipes /resident-report (resident-facing cross-phase summary) and /platform-report (platform-level reach, inclusion & participation report). Benchmarks in marked test mode pending MCP expansion. Maintained by Irene."
     }
   ]
 }

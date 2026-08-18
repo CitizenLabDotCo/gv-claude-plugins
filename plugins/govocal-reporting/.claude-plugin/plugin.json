@@ -1,10 +1,14 @@
 {
   "name": "govocal-reporting",
   "displayName": "Go Vocal Reporting",
-  "description": "Client reporting toolkit: generate a styled, client-facing project report (PDF) from a platform's reporting MCP — funnel, representativeness, themes, quotes, closing-the-loop, benchmarks. Maintained by Irene.",
+  "description": "Client reporting toolkit, three recipes: /project-report (client-facing project report), /resident-report (draft — resident-facing cross-phase summary) and /platform-report (draft — platform-level reach, inclusion & participation report). Styled PDFs from a platform's reporting MCP. Maintained by Irene.",
   "author": {
     "name": "Go Vocal"
   },
   "repository": "https://github.com/CitizenLabDotCo/gv-claude-plugins",
-  "keywords": ["go-vocal", "internal", "reporting"]
+  "keywords": [
+    "go-vocal",
+    "internal",
+    "reporting"
+  ]
 }
