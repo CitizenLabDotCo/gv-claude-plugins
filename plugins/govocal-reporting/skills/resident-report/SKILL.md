@@ -49,7 +49,7 @@ Same HTML → headless-Chrome → PDF pipeline as the project report. Alternativ
 - **Layout**: one scrollable page or 1–2 A4 pages. Card-like section per phase for "what we asked" (a simple vertical timeline). Resident quotes styled as large pull-quotes with the brand color rule. Photography slots with captions (use the project header image if available; never stock-photo filler).
 - **Charts: 1–2 maximum, human-scale**: whole numbers, big direct labels, no legends, no gridlines, one brand accent. "Who took part" = pictogram-style or simple horizontal bars ("1,214 of you"); results = horizontal bars with the winning option annotated in words. Every chart gets alt text; nothing encoded by color alone.
 - **Multilingual robustness**: layout must tolerate ~30% text expansion between locales and support RTL when a platform locale requires it; numbers and dates locale-formatted per output language.
-- **Print CSS**: `@page { size: A4; margin: 18mm }`, no page break inside a phase card.
+- **Print CSS**: `@page { size: A4; margin: 18mm }`; let content flow — never force a page break per section (strands blank half-pages); `break-inside:avoid` on phase cards, charts and quotes, `break-after:avoid` on headings.
 - Footer: project name, data window, generation date, and "Questions? Contact …" line in the output locale.
 
 ## Collected gaps (resident report) — verified against citizenlab code, Aug 18 2026
